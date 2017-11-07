@@ -20,10 +20,12 @@ tasks.withType(Checkstyle) {
     html.enabled = true
   }
 
-tasks.withType(Pmd) {
-  reports {
-    html.enabled = true
-  }
+pmd {
+  ignoreFailures = true
+  reports{
+	html.enabled = true
+	}
+}
 
 
 }
