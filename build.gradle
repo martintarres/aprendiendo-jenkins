@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'checkstyle'
+apply pluing 'pmd'
 
 repositories {
   mavenCentral()
