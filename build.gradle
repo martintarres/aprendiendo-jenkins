@@ -19,6 +19,13 @@ tasks.withType(Checkstyle) {
   reports {
     html.enabled = true
   }
+
+tasks.withType(Pmd) {
+  reports {
+    html.enabled = true
+  }
+
+
 }
 
  
