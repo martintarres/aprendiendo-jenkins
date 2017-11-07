@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
   testCompile 'junit:junit:4.8.2'
+
 }
 
 
@@ -17,5 +18,10 @@ tasks.withType(Checkstyle) {
   reports {
     html.enabled = true
   }
+}
+
+ 
+test {
+    systemProperties 'property': 'value'
 }
 
