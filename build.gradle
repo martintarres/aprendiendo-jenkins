@@ -20,7 +20,7 @@ tasks.withType(Checkstyle) {
     html.enabled = true
   }
 
-tasks.withType(pmd) {
+tasks.withType(Pmd) {
   ignoreFailures = true
   reports{
 	html.enabled = true
