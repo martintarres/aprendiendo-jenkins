@@ -20,53 +20,6 @@ dependencies {
   testCompile 'junit:junit:4.8.2'
 }
 
-// copy jar files to build/libs/lib (see http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle)
-task copyJarsToLib (type: Copy) {
-    //println "executing copyJarsToLib"
-    def toDir = "build/libs/lib"
-    file(toDir).mkdirs()
-
-    // debugging:
-    //configurations.compile.each { println it }
-    //configurations.testCompile.each { println it }
-
-    // copy jars to lib folder:
-    from configurations.compile
-    from configurations.testCompile
-    into toDir
-}
-
-task copyResourcesToLib (type: Copy) {
-    //println "executing copyResourcesToLib"
-    def toDir = "build/libs"
-    file(toDir).mkdirs()
- 
-    // debugging:
-    //sourceSets.main.resources.each { println it }
-    //sourceSets.test.resources.each { println it }
-
-    from sourceSets.main.resources
-    from sourceSets.test.resources
-    into toDir
-    
-}
-
-jar {
-    // exclude the resources (they are found outside of the jar):
-    exclude ("properties/**")
-    exclude ("files/**")
-    exclude ("log4j.properties")
-    
-
-    // make jar executable: see http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle
-    manifest {
-        attributes (
-	    'Main-Class': 'de.oveits.simplerestfulfilestorage.MainApp',
-	    // add classpath to Manifest; see http://stackoverflow.com/questions/30087427/add-classpath-in-manifest-file-of-jar-in-gradle
-	    "Class-Path": '. lib/' + configurations.compile.collect { it.getName() }.join(' lib/')
-	    )
-    }
-}
 
 // create test jar: see http://stackoverflow.com/questions/10034084/creating-a-jar-of-test-binaries-gradle + trial and error or better trial and success:
 task testJar(type: Jar) {
@@ -97,10 +50,3 @@ tasks.withType(Checkstyle) {
   }
 }
 
-// always call copyResourcesToLib when building jars:
-jar.dependsOn copyResourcesToLib
-testJar.dependsOn copyResourcesToLib
-
-// always call copyJarsToLib when building jars:
-jar.dependsOn copyJarsToLib
-testJar.dependsOn copyJarsToLib
