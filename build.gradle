@@ -15,7 +15,7 @@ dependencies {
 
 
 
-tasks.withType(Checkstyle) {
+/*tasks.withType(Checkstyle) {
   ignoreFailures = true
   reports {
     html.enabled = true
@@ -33,7 +33,7 @@ findbugs {
  reportsDir = file("$project.buildDir/reports/findbugs")
   }
 
-
+*/
 
 
 
