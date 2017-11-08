@@ -30,7 +30,7 @@ tasks.withType(Pmd) {
 
 findbugs {
   
-
+ reportsDir = file("$project.buildDir/reports/findbugs")
   }
 
 
