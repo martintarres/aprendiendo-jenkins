@@ -30,7 +30,7 @@ tasks.withType(Pmd) {
 
 findbugs {
   
-  toolVersion = "2.0.1"
+
   }
 
 
