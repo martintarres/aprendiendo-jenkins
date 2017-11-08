@@ -42,7 +42,7 @@ findbugs {
 }
 */
 
- tasks.withType(test1) {
+ tasks.withType(Test) {
   ignoreFailures = true
   reports {
     html.enabled = true
