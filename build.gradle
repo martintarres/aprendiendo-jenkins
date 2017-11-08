@@ -33,7 +33,11 @@ findbugs {
   
  reportsDir = file("$project.buildDir/reports/findbugs")
   }
-
+tasks.withType(test1) {
+  ignoreFailures = true
+  reports {
+    html.enabled = true
+  }
 
 
 
