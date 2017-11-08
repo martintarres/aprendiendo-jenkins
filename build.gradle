@@ -15,25 +15,7 @@ dependencies {
 
 
 
-/*tasks.withType(Checkstyle) {
-  ignoreFailures = true
-  reports {
-    html.enabled = true
-  }
 
-tasks.withType(Pmd) {
-  ignoreFailures = false
-  reports{
-	html.enabled = true
-	}
-}
-
-findbugs {
-  
- reportsDir = file("$project.buildDir/reports/findbugs")
-  }
-
-*/
 
 
 
