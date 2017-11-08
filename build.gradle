@@ -33,26 +33,7 @@ findbugs {
  reportsDir = file("$project.buildDir/reports/findbugs")
   }
 
-task testJar(type: Jar) {
-    testJar {
-	// exclude the resources (they are found outside of the jar):
-        exclude ("properties/**")
-	exclude ("files/**")
-	exclude ("log4j.properties")
 
-        // make jar executable: see http://stackoverflow.com/questions/21721119/creating-runnable-jar-with-gradle
-        manifest {
-            attributes (
-                'Main-Class': 'de.oveits.simplerestfulfilestorage.MainTest',
-                // add classpath to Manifest; see http://stackoverflow.com/questions/30087427/add-classpath-in-manifest-file-of-jar-in-gradle
-                "Class-Path": '. lib/' + configurations.compile.collect { it.getName() }.join(' lib/')
-                )
-        }
-    }
-   version = 'test-0.0.1-SNAPSHOT'
-   from sourceSets.test.output
-   from sourceSets.main.output
-}
 
 }
 
