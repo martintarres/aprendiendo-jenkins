@@ -28,12 +28,10 @@ tasks.withType(Pmd) {
 	}
 }
 
-tasks.withType(Findbugs) {
-  ignoreFailures = false
-  reports{
-	html.enabled = true
-	}
-}
+findbugs {
+  
+  toolVersion = "2.0.1"
+  }
 
 
 }
