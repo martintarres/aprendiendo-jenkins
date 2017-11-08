@@ -47,5 +47,6 @@ findbugs {
   reports {
     html.enabled = true
   }
+}
 
 
